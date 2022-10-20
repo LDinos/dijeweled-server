@@ -3,7 +3,8 @@ log_write("Exiting...")
 file_delete("LOG.txt")
 var file = file_text_open_write("LOG.txt")
 for(var i = array_length(log)-1; i >= 0; i--) {
-	file_text_write_string(file, log[i][$ "text"])
+	var txt = string(log[i][$ "time"]) + string(log[i][$ "text"])
+	file_text_write_string(file, txt)
 	file_text_writeln(file)
 }
 file_text_close(file)

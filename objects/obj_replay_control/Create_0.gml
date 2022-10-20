@@ -54,7 +54,7 @@ function stop_timer() {
 	var _buffer = buffer_create(string_byte_length(json)+1, buffer_fixed, 1)
 	buffer_write(_buffer, buffer_string, json)
 	with(obj_server) network_send(NN_SERVER_REPLAY_DATA, [buffer_string], [json], BOTH)
-	buffer_save(_buffer, "test.json")
+	buffer_save(_buffer, "replay.json")
 	buffer_delete(_buffer)
 }
 
