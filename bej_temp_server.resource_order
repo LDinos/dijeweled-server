@@ -1,0 +1,12 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"obj_replay_control","order":1,"path":"objects/obj_replay_control/obj_replay_control.yy",},
+    {"name":"array_find_index","order":3,"path":"scripts/array_find_index/array_find_index.yy",},
+    {"name":"log_write","order":6,"path":"scripts/log_write/log_write.yy",},
+    {"name":"network_send_all_except","order":5,"path":"scripts/network_send_all_except/network_send_all_except.yy",},
+    {"name":"network_send_simple","order":4,"path":"scripts/network_send_simple/network_send_simple.yy",},
+    {"name":"network_send","order":1,"path":"scripts/network_send/network_send.yy",},
+    {"name":"scr_received_buffer","order":2,"path":"scripts/scr_received_buffer/scr_received_buffer.yy",},
+  ],
+}

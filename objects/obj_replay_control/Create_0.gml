@@ -5,6 +5,8 @@ replay_player1 = {}
 replay_player2 = {}
 game_seed = 0
 game_replay = {}
+gamemodes = [ "Time Attack", "Avalanche"]
+time_attack_times = ["5:00", "3:00", "1:00"]
 game_settings = {
 	"blazing_allowed" : true,
 	"ultranovas_allowed" : true,
@@ -30,23 +32,34 @@ function start_timer() {
 	
 function stop_timer() {	
 	var struct_file = {
-		"player1" : replay_player1,
-		"player2" : replay_player2,
-		"player1_name" : global.user1,
-		"player2_name" : global.user2,
-		"seed" : game_seed,
-		"game_end" : timer+1,
-		"blazing_allowed" : game_settings[$ "blazing_allowed"],
-		"ultranovas_allowed" : game_settings[$ "ultranovas_allowed"],
-		"multiswap_allowed" : game_settings[$ "multiswap_allowed"],
-		"hypercubes_allowed" : game_settings[$ "hypercubes_allowed"],
-		"matchless_allowed" : game_settings[$ "matchless_allowed"],
-		"twist_allowed" : game_settings[$ "twist_allowed"],
-		"skins" : game_settings[$ "skins"],
-		"gamemode" : game_settings[$ "gamemode"],
-		"gamemode_val" : game_settings[$ "gamemode_val"],
-		"avalanche_turns" : game_settings[$ "avalanche_turns"],
-		"date" : string(date_get_day(date_current_datetime())) + "-" + string(date_get_month(date_current_datetime())) + "-" + string(date_get_year(date_current_datetime()))
+		"title" : global.user1 + " VS " + global.user2,
+		"date" : string(date_get_day(date_current_datetime())) + "-" + string(date_get_month(date_current_datetime())) + "-" + string(date_get_year(date_current_datetime())),
+		"gamemode" : gamemodes[game_settings[$ "gamemode"]],
+		"time": game_settings[$ "gamemode"] == 0 ? time_attack_times[game_settings[$ "gamemode_val"]] : "-",
+		"score" : 0,
+		"author": global.user1 + " | " + global.user2,
+		"is_twist": game_settings[$ "twist_allowed"],
+		"replay_ver": 2,
+		"geode_xplier": 1,
+		"data": {
+			"player1" : replay_player1,
+			"player2" : replay_player2,
+			"player1_name" : global.user1,
+			"player2_name" : global.user2,
+			"seed" : game_seed,
+			"game_end" : timer+1,
+			"blazing_allowed" : game_settings[$ "blazing_allowed"],
+			"ultranovas_allowed" : game_settings[$ "ultranovas_allowed"],
+			"multiswap_allowed" : game_settings[$ "multiswap_allowed"],
+			"hypercubes_allowed" : game_settings[$ "hypercubes_allowed"],
+			"matchless_allowed" : game_settings[$ "matchless_allowed"],
+			"twist_allowed" : game_settings[$ "twist_allowed"],
+			"skins" : game_settings[$ "skins"],
+			"gamemode_value" : game_settings[$ "gamemode"],
+			"gamemode_type" : game_settings[$ "gamemode_val"],
+			"gamemode_name" : (game_settings[$ "gamemode"] == 0) ? "Time Attack" : "Avalanche",
+			"avalanche_turns" : game_settings[$ "avalanche_turns"]	
+		}
 	}
 	timer = 0
 	timer_started = false

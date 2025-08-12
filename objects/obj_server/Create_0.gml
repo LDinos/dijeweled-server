@@ -3,7 +3,7 @@
 #macro PLAYER_2 1
 #macro BOTH 2
 #macro SPECTATOR_ONLY -1
-global.version = "1.16"
+global.version = "1.18"
 log = []
 log_write("Opening Server...", c_yellow)
 
